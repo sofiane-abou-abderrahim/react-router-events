@@ -98,3 +98,10 @@
 2. in `Events.js`, export a function that you could name `loader()` & put your `loader` code into that function
 3. in `App.js`, import that `{loader}` function & give it an alias like `eventsLoader`
 4. use that `eventsLoader` pointer a that function as a value for that `loader` property
+
+## 6. When Are loader() Functions Executed?
+
+1. in `backend\routes\events.js`, add a timer inside the code responsible to send the events data to the frontend
+2. quit the server & restart it
+3. by default, React Router will wait for the data to be fetched (so for the loader to be finished) before it then renders the page with the fetched data
+4. therefore, you don't need to render a loading state on the `EventsPage` component

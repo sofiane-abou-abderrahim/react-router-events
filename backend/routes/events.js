@@ -4,7 +4,7 @@ const { getAll, get, add, replace, remove } = require('../data/event');
 const {
   isValidText,
   isValidDate,
-  isValidImageUrl,
+  isValidImageUrl
 } = require('../util/validation');
 
 const router = express.Router();
@@ -12,7 +12,9 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
   try {
     const events = await getAll();
-    res.json({ events: events });
+    setTimeout(() => {
+      res.json({ events: events });
+    }, 1500);
   } catch (error) {
     next(error);
   }
@@ -51,7 +53,7 @@ router.post('/', async (req, res, next) => {
   if (Object.keys(errors).length > 0) {
     return res.status(422).json({
       message: 'Adding the event failed due to validation errors.',
-      errors,
+      errors
     });
   }
 
@@ -87,7 +89,7 @@ router.patch('/:id', async (req, res, next) => {
   if (Object.keys(errors).length > 0) {
     return res.status(422).json({
       message: 'Updating the event failed due to validation errors.',
-      errors,
+      errors
     });
   }
 
