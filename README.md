@@ -14,3 +14,63 @@
 2. run `cd backend && npm install && npm start`
 3. run `cd frontend && npm install && npm start`
 4. add a new `.gitignore` file & put `node_modules` inside
+
+## 1. Time to Practice: Solution
+
+1. Add five new (dummy) page components (content can be simple `<h1>` elements)
+
+   - HomePage
+   - EventsPage
+   - EventDetailPage
+   - NewEventPage
+   - EditEventPage
+
+   1. run `cd frontend/ && npm install react-router-dom`
+   2. add a new `pages` folder & add inside of it the 5 dummy pages
+
+2. Add routing & route definitions for these five pages
+
+   - / => HomePage
+   - /events => EventsPage
+   - /events/`<some-id>` => EventDetailPage
+   - /events/new => NewEventPage
+   - /events/`<some-id>`/edit => EditEventPage
+
+   1. in `App.js`, use `RouterProvider` for the route definitions
+   2. then, use `createBrowserRouter()` for rendering the routes
+
+3. Add a root layout that adds the `<MainNavigation>` component above all page components
+
+   1. add a new `Root.js` file in the `pages` folder
+   2. inside of it, render the `<MainNavigation>` & `<Outlet>` components
+   3. in `App.js`, define the `<RootLayout>`
+   4. convert the paths into relative paths to the parent root
+   5. turn the `HomePage` path into an index route
+
+4. Add properly working links to the MainNavigation
+
+   1. in `MainNavigation.js`, replace `<a>` by `<Link>`
+   2. set the `to` attribute to absolute paths
+
+5. Ensure that the links in MainNavigation receive an "active" class when active
+
+   1. in `MainNavigation.js`, use the special `<NavLink>` component instead of the regular `<Link>` component
+   2. add the `className` prop & set to it a function with the `isActive` object as a parameter
+   3. set the `end` prop to the Home Navlink
+
+6. Output a list of dummy events to the EventsPage
+
+   - Every list item should include a link to the respective EventDetailPage
+
+   1. in `Events.js`, add some `DUMMY_EVENTS` array
+   2. render the list of events dynamically
+
+7. Output the ID of the selected event on the EventDetailPage
+
+   1. in `EventDetail.js`, import `useParams` from `react-router-dom` & store the returned value in a `params` constant
+   2. use the `params` constant to output the event id
+
+8. BONUS: Add another (nested) layout route that adds the `<EventNavigation>` component above all /events... page components
+
+   1. in `Add.js`, add a new route with a `path` set to `events`
+   2. add a new `EventsRoot.js` file inside of the `pages` folder
