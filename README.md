@@ -85,3 +85,9 @@
 1. in `Events.js`, get access to the data returned by the `loader` function with help of `useLoaderData`
 2. store the returned value of this `userLoaderData` function in a `events` constant
 3. pass this `events` constant as a value to the `events` prop of the `<EventList>` component
+
+## 4. More loader() Data Usage
+
+1. use the `useLoaderData` hook in `EventsList.js` instead of `Events.js`
+2. don't use `useLoaderData` in higher level from where you defined the `loader` function
+3. put back the `useLoaderData` usage in `Events.js`
