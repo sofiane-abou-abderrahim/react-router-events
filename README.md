@@ -79,3 +79,9 @@
 
 1. replace the content of the `Events.js` file with the provided one
 2. in `App.js`, add the extra `loader` property to your route definitions so that the fetched data load before the component
+
+## 3. Using Data From A Loader In The Route Component
+
+1. in `Events.js`, get access to the data returned by the `loader` function with help of `useLoaderData`
+2. store the returned value of this `userLoaderData` function in a `events` constant
+3. pass this `events` constant as a value to the `events` prop of the `<EventList>` component
