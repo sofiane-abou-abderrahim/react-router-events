@@ -91,3 +91,10 @@
 1. use the `useLoaderData` hook in `EventsList.js` instead of `Events.js`
 2. don't use `useLoaderData` in higher level from where you defined the `loader` function
 3. put back the `useLoaderData` usage in `Events.js`
+
+## 5. Where Should loader() Code Be Stored?
+
+1. put the `loader` function code into your component file where you need it, so in `Events.js`
+2. in `Events.js`, export a function that you could name `loader()` & put your `loader` code into that function
+3. in `App.js`, import that `{loader}` function & give it an alias like `eventsLoader`
+4. use that `eventsLoader` pointer a that function as a value for that `loader` property
