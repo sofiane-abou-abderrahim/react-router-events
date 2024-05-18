@@ -105,3 +105,11 @@
 2. quit the server & restart it
 3. by default, React Router will wait for the data to be fetched (so for the loader to be finished) before it then renders the page with the fetched data
 4. therefore, you don't need to render a loading state on the `EventsPage` component
+
+## 7. Reflecting The Current Navigation State in the UI
+
+1. give the user some feedback that something is going when he clicks on the `Events` navigation link
+   1. in `Root.js`, use the `useNavigation` hook
+   2. use the `state` property of this `navigation` object returned from the `useNavigation` hook to show a loading text dynamically
+2. remove this loading text & the `useNavigation`
+3. remove the timer in `backend\routes\events.js`
