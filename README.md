@@ -74,3 +74,8 @@
 
    1. in `Add.js`, add a new route with a `path` set to `events`
    2. add a new `EventsRoot.js` file inside of the `pages` folder
+
+## 2. Data Fetching with a loader()
+
+1. replace the content of the `Events.js` file with the provided one
+2. in `App.js`, add the extra `loader` property to your route definitions so that the fetched data load before the component
