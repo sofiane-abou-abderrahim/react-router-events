@@ -130,3 +130,11 @@
 3. as an alternative, you can `throw` an error & construct a new error object with the built-in `new Error` constructor or any kind of object
 4. add an `Error.js` page
 5. in `App.js`, add the `errorElement` property to the root route & render the `<ErrorPage>` component
+
+## 10. Extracting Error Data & Throwing Responses
+
+1. add a new `PageContent.js` file inside of the `components` folder
+2. render the `<PageContent>` component in `Error.js`
+3. differenciate between the different types of errors by throwing a `new Response` instead of an object in `Events.js` & set the `status` to `500`
+4. get hold of the data that is being thrown as an error inside of the component that is being rendered as an `errorElement` with help of the special `{useRouteError}` hook imported from`react-router-dom`
+5. use the `status` field of this `{useRouteError}` hook that is provided when you throw a `new Response` which in our case reflects the `500` status of the response we threw
