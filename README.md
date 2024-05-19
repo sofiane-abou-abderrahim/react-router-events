@@ -154,3 +154,16 @@
    2. use the `params` object to get the `eventId`
    3. register the `loader` in the route definitions to the `<EventDetailPage>` route & import the loader from `EventDetail.js` in `App.js`
    4. in `EventDetail.js`, use the `useLoaderData` hook to get the event data
+
+## 13. The useRouteLoaderData() Hook & Accessing Data From Other Routes
+
+1. in `EventItem.js`, use the `<Link>` component to redirect the user to the `EditEventPage` upon a click
+2. in `EditEvent.js`, show the `<EventForm>` component
+3. prepopulate that event form with the data for the event which you try to add it
+   1. as we fetched the `EventDetail` data on the `EventDetailPage`, fetch it also on the `EditEventPage` because that where we need the data for the `EventForm`
+   2. in `App.js`, add a new route definition & set the `path` to `eventId` & just set `children`
+   3. add a `loader` to this new route & set the `eventDetailLoader` to it
+   4. in `EditEvent.js`, use the `useLoaderData` hook
+   5. in `EventForm.js`, use the event data to set it as a default value to this form with the `defaulltValue` prop provided by React
+   6. to make sure that you use the `loader` data from the parent route, you must add the special `id` property in `App.js`
+   7. in `EventDetail.js` & `EditEvent.js`, use the `useRouteLoaderData` hook instead of `useLoaderData` & pass to it the `event-detail` id
