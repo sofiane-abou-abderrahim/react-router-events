@@ -122,3 +122,11 @@
 4. you don't need to manually extract the data from the response `resData`, instead you can return your `response` straight away
 5. and `useLoaderData` will then automatically give us the data that os part of the `response`
 6. now, store the returned value of `useLoaderData` in a `data` constant & extract your `events` from that `data` object
+
+## 9. Error Handling with Custom Errors
+
+1. in `Events.js`, if the response is not sent, return an object with `isError` & `message` keys
+2. in the `EventsPage` component, check if the `isError` is truthy & render `data.message` in paragraph
+3. as an alternative, you can `throw` an error & construct a new error object with the built-in `new Error` constructor or any kind of object
+4. add an `Error.js` page
+5. in `App.js`, add the `errorElement` property to the root route & render the `<ErrorPage>` component
