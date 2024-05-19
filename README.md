@@ -144,3 +144,13 @@
 1. in `Events.js`, instead of throwing a `new Response`, `throw` the `json()` helper utility imported from `react-router-dom`
 2. this function creates a response object that includes data in the JSON format
 3. now you can remove the `JSON.parse()` function in the place where you use that response data (in our case in `Error.js`)
+
+## 12. Dynamic Routes & loader()s
+
+1. in `EventsList.js`, use the `<Link>` component to navigate to the `EventDetailPage` component upon clicking on an event
+2. in `EventDetail.js`, output the `<EventItem>` component
+3. set to it the `event` prop & pass to it the event data for the event for which you want to view the details
+   1. load the event details by exporting another `loader()` function
+   2. use the `params` object to get the `eventId`
+   3. register the `loader` in the route definitions to the `<EventDetailPage>` route & import the loader from `EventDetail.js` in `App.js`
+   4. in `EventDetail.js`, use the `useLoaderData` hook to get the event data
