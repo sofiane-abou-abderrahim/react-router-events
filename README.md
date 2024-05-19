@@ -113,3 +113,12 @@
    2. use the `state` property of this `navigation` object returned from the `useNavigation` hook to show a loading text dynamically
 2. remove this loading text & the `useNavigation`
 3. remove the timer in `backend\routes\events.js`
+
+## 8. Returning Responses in loader()s
+
+1. in `Events.js`, create a new response object by instantiating the built-in `Response` constructor function in the browser
+2. whenever you return such a response in your loaders, the React Router package will automatically extract the data from your response when using `useLoaderData`
+3. so you can take that `response`object you get from `fetch()` and return that in your `loader()`
+4. you don't need to manually extract the data from the response `resData`, instead you can return your `response` straight away
+5. and `useLoaderData` will then automatically give us the data that os part of the `response`
+6. now, store the returned value of `useLoaderData` in a `data` constant & extract your `events` from that `data` object
