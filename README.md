@@ -138,3 +138,9 @@
 3. differenciate between the different types of errors by throwing a `new Response` instead of an object in `Events.js` & set the `status` to `500`
 4. get hold of the data that is being thrown as an error inside of the component that is being rendered as an `errorElement` with help of the special `{useRouteError}` hook imported from`react-router-dom`
 5. use the `status` field of this `{useRouteError}` hook that is provided when you throw a `new Response` which in our case reflects the `500` status of the response we threw
+
+## 11. The json() Utility Function
+
+1. in `Events.js`, instead of throwing a `new Response`, `throw` the `json()` helper utility imported from `react-router-dom`
+2. this function creates a response object that includes data in the JSON format
+3. now you can remove the `JSON.parse()` function in the place where you use that response data (in our case in `Error.js`)
