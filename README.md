@@ -167,3 +167,10 @@
    5. in `EventForm.js`, use the event data to set it as a default value to this form with the `defaulltValue` prop provided by React
    6. to make sure that you use the `loader` data from the parent route, you must add the special `id` property in `App.js`
    7. in `EventDetail.js` & `EditEvent.js`, use the `useRouteLoaderData` hook instead of `useLoaderData` & pass to it the `event-detail` id
+
+## 14. Planning Data Submission
+
+1. display the `<EventForm>` component in `NewEvent.js`
+2. plan how you will send data to the backend API when clicking on the `Save` button
+   1. function `submitHandler` (regular method)
+   2. or add `actions` to send data (recommended method when using React Router)
