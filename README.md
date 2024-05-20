@@ -189,3 +189,14 @@
 6. add the data that was submitted with the form to the request via the `body` property
 7. in `App.js`, import this `action` function for this `NewEventPage` route definition & use it as a value for this `action` property
 8. in `NewEvent.js`, navigate the user away after submitting successfully the form with the `redirect` function
+
+## 16. Submitting Data Programmatically
+
+1. in `EventForm.js`, you could send the request to a different route with the `action` attribute
+2. a different way of triggering an action
+   1. in `EventItem.js`, inside of the `startDeleteHandler` function, show a confirmation prompt with the `window.confirm` function
+   2. if it returns `true`, trigger an action that deletes this event
+   3. in `App.js`, add an `action` property to the `EventDetailPage` route
+   4. in `EventDetail.js`, add the `action` function
+   5. in `EventItem.js`, don't trigger this action with the special `<Form>` component so you can display the prompt
+   6. instead, trigger the action & submit the data programmatically with the special `useSubmit` hook imported `react-router-dom`
