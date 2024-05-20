@@ -208,3 +208,12 @@
 3. when adding a new event, the submission will take a short while & we don't get any feedback regarding that
 4. in `EventForm.js`, get some feedback & disable the `Save` button after submission with help of the `useNavigation` hook
 5. in `backend\routes\events.js`, remove the `setTimeout()` function & restart the backend server
+
+## 18. Validating User Input & Outputting Validation Errors
+
+1. in `EventForm.js`, show the users any validation errors for example because some user disabled client side validation
+2. in `NewEvent.js`, react to potential backend validation errors (status 422)
+   1. don't show your default error page & throw an error response,
+   2. instead, show the validation errors above the `<EventForm>` component so that you don't discard the values entered by the users
+   3. to do that, return the data (`response`) you want to output above the form in the `action` function
+   4. use the returned `action` data in `EventForm.js` with help of the `useActionData` hook
