@@ -231,3 +231,13 @@
    6. make the URL in the `action` function dynamic in `EventForm.js`
    7. in `App.js`, make sure this `action` that you could name `manipulateEventAction` is used on all the routes wheren you need to use it
    8. so add this `manipulateEventAction` to the `NewEventPage` & `EditEventPage` routes
+
+## 20. Behind-the-Scenes Work with useFetcher()
+
+1. add all the new provided files
+2. trigger the `newsletterAction` whenever the `NewsletterSignup` form is submitted which is part off all pages because it is part of the `MainNavigation`
+   1. in `NewsletterSignup.js`, use the `useFetcher` hook imported from `react-router-dom`
+   2. use the `fetcher.Form` component to still trigger an action (or loader) without initializing a route transition (so without navigating to the page where the action or the loader belongs)
+   3. add the `action` attribute to the form and trigger `/newsletter`
+   4. but, with `fetcher.Form` you make sure that you don't load the element that belongs to this route component
+   5. get some feedback & update the UI with the fetcher's `data` & `state` properties & `useEffect()`
