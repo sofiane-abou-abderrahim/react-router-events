@@ -200,3 +200,11 @@
    4. in `EventDetail.js`, add the `action` function
    5. in `EventItem.js`, don't trigger this action with the special `<Form>` component so you can display the prompt
    6. instead, trigger the action & submit the data programmatically with the special `useSubmit` hook imported `react-router-dom`
+
+## 17. Updating the UI State Based on the Submission Status
+
+1. in `backend\routes\events.js`, add a short delay before sending the post request
+2. restart the backend server
+3. when adding a new event, the submission will take a short while & we don't get any feedback regarding that
+4. in `EventForm.js`, get some feedback & disable the `Save` button after submission with help of the `useNavigation` hook
+5. in `backend\routes\events.js`, remove the `setTimeout()` function & restart the backend server
