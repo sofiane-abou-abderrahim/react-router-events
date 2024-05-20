@@ -174,3 +174,18 @@
 2. plan how you will send data to the backend API when clicking on the `Save` button
    1. function `submitHandler` (regular method)
    2. or add `actions` to send data (recommended method when using React Router)
+
+## 15. Working with action() Functions
+
+1. in `App.js`, add the special `action` property to the `NewEventPage` route definition
+2. just like `loader`, the `action` property wants a function
+3. add the `action` function in `NewEvent.js`
+4. in this `action` function send a POST request to the backend with the `fetch()` function
+5. extract the data from that form
+   1. make sure that all the inputs have the `name` attribute
+   2. replace the `<form>` element by the special `<Form>` component provided by `react-router-dom`
+   3. add to it the `method` property & set it to `post`
+   4. in `NewEvent.js`, get hold of that request that is captured by the `<Form>` tag & forwarded to the `action` property with the `request` property & the `formData()` method & the `get()` method
+6. add the data that was submitted with the form to the request via the `body` property
+7. in `App.js`, import this `action` function for this `NewEventPage` route definition & use it as a value for this `action` property
+8. in `NewEvent.js`, navigate the user away after submitting successfully the form with the `redirect` function
