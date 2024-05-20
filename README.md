@@ -217,3 +217,17 @@
    2. instead, show the validation errors above the `<EventForm>` component so that you don't discard the values entered by the users
    3. to do that, return the data (`response`) you want to output above the form in the `action` function
    4. use the returned `action` data in `EventForm.js` with help of the `useActionData` hook
+
+## 19. Reusing Actions via Request Methods
+
+1. support submission for the `EditEvenPage` component
+2. in `App.js`, register an `action` for this `EditEventPage` route
+3. to do that, reuse the `action` which you are using for the `NewEventPage` route
+   1. move the `action` function from `NewEvent.js` into `EventForm.js`
+   2. make the code in this `action` function a bit more dynamic to be able to send both a request for adding a new event as well as for editing an existing event
+   3. set a `method` prop
+   4. in `NewEvent.js`, set the `method` to `post` & in `EditEvent.js`, set the `method` to `patch`
+   5. in `EventForm.js`, extract the `method` with the `request` object & use it for the `method` of the request we are sending to the backend
+   6. make the URL in the `action` function dynamic in `EventForm.js`
+   7. in `App.js`, make sure this `action` that you could name `manipulateEventAction` is used on all the routes wheren you need to use it
+   8. so add this `manipulateEventAction` to the `NewEventPage` & `EditEventPage` routes
