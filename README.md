@@ -241,3 +241,15 @@
    3. add the `action` attribute to the form and trigger `/newsletter`
    4. but, with `fetcher.Form` you make sure that you don't load the element that belongs to this route component
    5. get some feedback & update the UI with the fetcher's `data` & `state` properties & `useEffect()`
+
+## 21. Deferring Data Fetching with defer()
+
+1. go back to `backend\routes\events.js`, bring back a timer on the get route
+2. in `Events.js`, load the page before the data is there by deferring loading
+   1. grab the code inside of the `loader()` function & outsource it into a separate `loadEvents()` function
+   2. in the old `loader()` function, use the `defer` function imported from `react-router-dom`
+   3. use the `Await` component imported from `react-router-dom` instead of the `<EventList>` component you were rendering
+   4. set to it the `resolve` prop & pass to it the `data` deferred value which we named `events` in the `defer` function
+   5. between the `<Await>` tags, output a dynamic value which must be a function that will be executed by React once that promise resolves
+   6. wrap the `<Await>` component with the `<Suspense>` component imported from `react` to show a fallback whilst we're waiting for other data to arrive (in this case for these events to be fetched)
+   7. don't return the `response` anymore inside of the `loadEvents()` helper function, but parse it manually
