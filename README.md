@@ -270,3 +270,8 @@
    3. to do so, in `EventDetail.js`, add the `await` keyword before `loadEvent(id)` inside the `defer` function
    4. with that, you will never see the "Loading..." message for the event detail when navigating to the `EventDetailPage`
 4. side note: in `EventsList.js`, convert the links into absolute paths
+
+## 23. Finishing the App
+
+1. finalize the `HomePage` component
+2. use the `<PageContent>` component to render a title and a paragraph
