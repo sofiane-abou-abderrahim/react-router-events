@@ -253,3 +253,20 @@
    5. between the `<Await>` tags, output a dynamic value which must be a function that will be executed by React once that promise resolves
    6. wrap the `<Await>` component with the `<Suspense>` component imported from `react` to show a fallback whilst we're waiting for other data to arrive (in this case for these events to be fetched)
    7. don't return the `response` anymore inside of the `loadEvents()` helper function, but parse it manually
+
+## 22. Controlling Which Data Should Be Deferred
+
+1. in `EventDetail.js`, besides the `<EventItem>` component, output the `<EventsList>` component
+2. fetch the `events` on this page
+   1. copy the `loadEvents()` from `Events.js` & paste it in `EventDetail.js`
+   2. add a new `loadEvent()` function where you pass an `id` as an argument & paste inside of it the code from the `loader` function
+   3. use these 2 helper functions inside of the `loader()` function to defer again with help of the `defer()` function
+   4. use the `event` & `events` keys set in the `defer()` function with the `useRouteLoaderData()` function to get the data of these 2 defer requests so to say
+   5. use 2 `<Await>` components to wrap every component you want to render to await these 2 different requests
+   6. use 2 `<Suspense>` components to wrap every `<Await>` component
+3. this is still not the perfect solution because you can sometimes see the 2 loading messages of both deferred pieces of data
+   1. tell React Router to wait with displaying the `EventDetailPage` until the details have been loaded
+   2. it should then load the `EventsList` component after we navigated to the `eventDetailPage`
+   3. to do so, in `EventDetail.js`, add the `await` keyword before `loadEvent(id)` inside the `defer` function
+   4. with that, you will never see the "Loading..." message for the event detail when navigating to the `EventDetailPage`
+4. side note: in `EventsList.js`, convert the links into absolute paths
