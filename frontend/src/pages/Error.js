@@ -1,10 +1,10 @@
 import { useRouteError } from 'react-router-dom';
-
 import PageContent from '../components/PageContent';
 import MainNavigation from '../components/MainNavigation';
 
 function ErrorPage() {
   const error = useRouteError();
+  console.error('Error caught by ErrorPage:', error); // Log l'erreur
 
   let title = 'An error occurred!';
   let message = 'Something went wrong!';

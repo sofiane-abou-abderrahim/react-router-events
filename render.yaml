@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: react-router-events
+    env: node
+    plan: free
+    buildCommand: npm run build --prefix frontend
+    startCommand: npm start --prefix backend
+    envVars:
+      - key: NODE_ENV
+        value: production
